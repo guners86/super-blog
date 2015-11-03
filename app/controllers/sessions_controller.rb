@@ -16,4 +16,10 @@ class SessionsController < ApplicationController
             redirect_to login_path, notice: "Tu email y/o contraseña son inválidas. Intenta nuevamente."
         end
     end
+    
+    def destroy
+        sign_out
+        redirect_to root_path
+    end
+    
 end
