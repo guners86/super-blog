@@ -7,7 +7,13 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       
       if @user.save
-        
+        user = User.find_by(email: @user.email)
+        if user && user.authenticate(@user.password)
+          sign_in(user)
+          redirect_to root_path
+        else
+          render :new
+        end
       else
         render :new
       end
