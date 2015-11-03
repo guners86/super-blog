@@ -29,5 +29,15 @@ class ApplicationController < ActionController::Base
     rescue ActiveRecord::RecordNotFound
     end
     helper_method :current_user
+    
+    # Metodo que valida si el Usuario ya esta autenticado lo redirija a la ruta de root_path
+		def public_access
+			redirect_to root_path if signed_in?
+		end
+		
+	  # Metodo que valida si el usuario no esta logeado lo redirija a la pagina de logeo
+		def private_access
+			redirect_to :login unless signed_in?
+		end
   
 end
