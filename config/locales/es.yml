@@ -16,6 +16,8 @@ es:
       article:
         title: "Titulo"
         body: "Cuerpo"
+      comment:
+        body: "Comentario"
     errors:
       models:
         user:

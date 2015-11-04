@@ -8,13 +8,23 @@
                 <div class="article-body">
                     <%= @article.body %>
                 </div>
-                <% p "Articulo Id: " + @article.id.to_s %>
                 <% @article.comments.each do |comment| %>
                     <p class="navbar-text"><%= comment.user.email %> realizo el comentario</p>
                     <p class="navbar-text"><%= comment.body %></p>
                 <% end %>
                 
                 <% if signed_in? %>
+                    <% if @comment.errors.any? %>
+                  	    <br />
+                        <div class="alert alert-danger">
+                            <ul>
+                      	        <% @comment.errors.full_messages.each do |msg| %>
+                      		        <li><%= msg %></li>
+                      		    <% end %>
+                      	    </ul>
+                        </div>
+                    <% end %>
+                
                     <%= form_for [@article, @article.comments.build] do |f| %>
                         <div class="form-group">
                             <%= f.text_area :body, class: "form-control", placeholder: "Agregar Comentario" %>
