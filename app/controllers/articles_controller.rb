@@ -18,10 +18,9 @@ class ArticlesController < ApplicationController
     end
     
     def show
-        p params[:id]
         @article = Article.find(params[:id]);
-        p @article
-        #p @article.comments
+        # Este variable de instancia se crea para validar el modelo de comentarios a la hora de crearlos
+        @comment = Comment.new
     end
     
     private
