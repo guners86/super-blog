@@ -5,10 +5,14 @@
                 <div class="article">
                     <div class="article-title">
                         <span class="title"><%= link_to article.title, article %></span>
-                        <span class="description">Realizada por <%= article.user.email %> el <%= article.created_at.to_s(:db) %></span>
+                        <span class="description">Publicado por <%= article.user.email %> el <%= article.created_at.to_s(:db) %></span>
                     </div>
                     <div class="article-body">
-                        <%= article.body %>
+                        <% if article.body.length > 250 %>
+                            <%= article.body[0..250] + "..." %>
+                        <% else %>
+                            <%= article.body %>
+                        <% end %>
                     </div>
                 </div>
             <% end %>
