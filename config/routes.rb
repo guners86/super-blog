@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   # Configuracion rutas articles 
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
   
   # Configuracion rutas login new, create y logout
   get 'login', to: 'sessions#new'
