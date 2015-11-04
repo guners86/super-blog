@@ -13,6 +13,9 @@ es:
         name: "Nombre"
         password: "Contraseña"
         email: "Email"
+      article:
+        title: "Titulo"
+        body: "Cuerpo"
     errors:
       models:
         user:
@@ -20,3 +23,7 @@ es:
             password:
               too_long: "no puede tener mas de 20 Caracteres"
               too_short: "no puede tener menos de 3 Caracteres"
+        article:
+          attributes:
+            title:
+              too_long: "no puede tener mas de 150 caracteres"
