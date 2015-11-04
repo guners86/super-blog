@@ -9,8 +9,14 @@
                     <%= @article.body %>
                 </div>
                 <% @article.comments.each do |comment| %>
-                    <p class="navbar-text"><%= comment.user.email %> realizo el comentario</p>
-                    <p class="navbar-text"><%= comment.body %></p>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <%= comment.user.email %> realizo el comentario
+                        </div>
+                        <div class="panel-body">
+                            <%= comment.body %>
+                        </div>
+                    </div>
                 <% end %>
                 
                 <% if signed_in? %>
