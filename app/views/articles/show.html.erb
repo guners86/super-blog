@@ -8,6 +8,12 @@
                 <div class="article-body">
                     <%= @article.body %>
                 </div>
+                <% p "Articulo Id: " + @article.id.to_s %>
+                <% @article.comments.each do |comment| %>
+                    <p class="navbar-text"><%= comment.user.email %> realizo el comentario</p>
+                    <p class="navbar-text"><%= comment.body %></p>
+                <% end %>
+                
             </div>
         </div>
     </div>
