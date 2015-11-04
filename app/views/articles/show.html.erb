@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="article">
+                <div class="article-title">
+                    <span class="title"><%= @article.title %></span>
+                </div>
+                <div class="article-body">
+                    <%= @article.body %>
+                </div>
+                <% p "Articulo Id: " + @article.id.to_s %>
+                <% @article.comments.each do |comment| %>
+                    <p class="navbar-text"><%= comment.user.email %> realizo el comentario</p>
+                    <p class="navbar-text"><%= comment.body %></p>
+                <% end %>
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,13 @@ class ArticlesController < ApplicationController
         end
     end
     
+    def show
+        p params[:id]
+        @article = Article.find(params[:id]);
+        p @article
+        #p @article.comments
+    end
+    
     private
 
       	def article_parameter
