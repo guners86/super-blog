@@ -29,6 +29,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if signed_in? %>
+              <li><%= link_to "Nuevo Post", new_article_path %></li>
               <li><%= link_to "Salir", logout_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "Regístrate", new_user_path %></li>
