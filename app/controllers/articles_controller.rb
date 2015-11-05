@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
         @article = Article.new(article_parameter)
         @article.user = current_user
         if @article.save
-            redirect_to articles_path
+            redirect_to articles_path, notice: "El post ha sido creado con éxito"
         else
             render :new
         end
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     def update
         @article = Article.find(params[:id]);
         if @article.update(article_parameter)
-            redirect_to articles_path
+            redirect_to articles_path, notice: "El post ha sido actualizado con éxito"
         else
             render :edit
         end
