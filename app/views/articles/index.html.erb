@@ -9,9 +9,9 @@
                     </div>
                     <div class="article-body">
                         <% if article.body.length > 250 %>
-                            <%= article.body[0..250] + "..." %>
+                            <%= markdown(article.body[0..250] + "...") %>
                         <% else %>
-                            <%= article.body %>
+                            <%= markdown(article.body) %>
                         <% end %>
                     </div>
                     <% if signed_in? %>

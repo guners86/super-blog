@@ -6,7 +6,7 @@
                     <span class="title"><%= @article.title %></span>
                 </div>
                 <div class="article-body">
-                    <%= @article.body %>
+                    <%= markdown(@article.body) %>
                 </div>
                 <% @article.comments.each do |comment| %>
                     <div class="panel panel-default">
@@ -14,7 +14,7 @@
                             <%= comment.user.email %> realizo el comentario
                         </div>
                         <div class="panel-body">
-                            <%= comment.body %>
+                            <%= markdown(comment.body) %>
                         </div>
                     </div>
                 <% end %>
