@@ -23,6 +23,19 @@ class ArticlesController < ApplicationController
         @comment = Comment.new
     end
     
+    def edit
+        @article = Article.find(params[:id]);
+    end
+    
+    def update
+        @article = Article.find(params[:id]);
+        if @article.update(article_parameter)
+            redirect_to articles_path
+        else
+            render :edit
+        end
+    end
+    
     private
 
       	def article_parameter
