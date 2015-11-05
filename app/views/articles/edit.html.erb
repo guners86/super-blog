@@ -1,0 +1,34 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+		    <h1>Modificar Post</h1>
+		    
+		    <% if @article.errors.any? %>			 
+				<div class="alert alert-danger">
+					<ul>
+				    	<% @article.errors.full_messages.each do |msg| %>
+				      		<li><%= msg %></li>
+				    	<% end %>
+				    </ul>
+				</div>
+			<% end %>
+			
+			<%= form_for @article do |f|%>
+		    
+		        <div class="form-group">
+					<%= f.text_field :title, class: "form-control input-lg", placeholder: "Ingresa un Titulo" %>
+				</div>
+		    
+		        <div class="form-group">
+                    <%= f.text_area :body, class: "form-control", rows: "10", placeholder: "Ingresa el cuerpo del post" %>
+                </div>
+                
+                <div class="actions text-right">
+                    <%= f.submit "Modificar", class: "btn btn-primary btn-lg btn-block" %>
+                </div>
+		    
+		    <% end %>
+			
+		</div>
+	</div>
+</div>
