@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+    
+    # Valida que metodos estan restringidos para usuarios no logeados
+    before_action :private_access, except: [:index, :show]
+
+    
     def index
         @articles = Article.all.order("created_at DESC")
     end
