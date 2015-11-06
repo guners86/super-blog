@@ -17,8 +17,8 @@
                     <% if signed_in? %>
                         <% if current_user.id == article.user.id %>
                             <div class="article-tools">
-                                <%= link_to "<span class='glyphicon glyphicon-pencil'>Editar</span>".html_safe, edit_article_path(article) %>
-                                <%= link_to "<span class='glyphicon glyphicon-trash'>Eliminar</span>".html_safe, article, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
+                                <%= link_to "<span class='glyphicon glyphicon-pencil'></span> Editar".html_safe, edit_article_path(article) %>
+                                <%= link_to "<span class='glyphicon glyphicon-trash'></span> Eliminar".html_safe, article, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
                             </div>
                         <% end %>
                     <% end %>
